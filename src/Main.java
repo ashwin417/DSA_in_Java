@@ -69,40 +69,95 @@ public class Main {
 
 // LinkedList
 
-    public static void Linkedlistfunc() {
-
-        System.out.println();
-        LinkedList<Integer> linkedlist = new LinkedList<>();
+    public static void Linkedlistfunc()
+    {
         Scanner sc = new Scanner(System.in);
+
+        // Singly Linked List Operations
+        LinkedList<Integer> linkedlist = new LinkedList<>();
         int lop;
         do {
-            System.out.println("Enter your operation for Linkedlist:" +
-                    "1. Add" +
-                    "2. Delete" +
-                    "3. Print" +
+            System.out.println("Enter your operation for LinkedList:\n" +
+                    "1. Add\n" +
+                    "2. Delete\n" +
+                    "3. Print\n" +
                     "4. Exit LinkedList");
             lop = sc.nextInt();
-            switch (lop)
-            {
-                case 1: linkedlist.add(sc.nextInt());
-                break;
-                case 2: linkedlist.remove(sc.nextInt());
-                break;
-                case 3: System.out.println(linkedlist);
-                break;
-                default: break;
+            switch (lop) {
+                case 1:
+                    System.out.println("Enter element to add:");
+                    linkedlist.add(sc.nextInt());
+                    break;
+                case 2:
+                    System.out.println("Enter element to delete:");
+                    linkedlist.remove((Integer) sc.nextInt());
+                    break;
+                case 3:
+                    System.out.println("LinkedList: " + linkedlist);
+                    break;
+                default:
+                    break;
             }
-        }while(lop!=4);
+        } while (lop != 4);
 
+        // Doubly Linked List Operations
+        DoublyLinkedList dll = new DoublyLinkedList();
+        int dlop;
+        do {
+            System.out.println("\nEnter your operation for Doubly LinkedList:\n" +
+                    "1. Add\n" +
+                    "2. Delete\n" +
+                    "3. Print\n" +
+                    "4. Exit Doubly LinkedList");
+            dlop = sc.nextInt();
+            switch (dlop) {
+                case 1:
+                    System.out.println("Enter element to add:");
+                    dll.add(sc.nextInt());
+                    break;
+                case 2:
+                    System.out.println("Enter element to delete:");
+                    dll.delete(sc.nextInt());
+                    break;
+                case 3:
+                    System.out.print("Doubly LinkedList: ");
+                    dll.print();
+                    break;
+                default:
+                    break;
+            }
+        } while (dlop != 4);
 
-//        // Doubly Linkedlist
-//        DoublyLinkedList dll = new DoublyLinkedList();
-//        for (int i = 0; i < 10; i++) {
-//            dll.add(array[i]);
-//        }
-//        System.out.println("Doubly Linkedlist is: ");
-//        dll.print();
+        // Circular Linked List Operations
+        CircularLinkedList cll = new CircularLinkedList();
+        int clop;
+        do {
+            System.out.println("\nEnter your operation for Circular LinkedList:\n" +
+                    "1. Add\n" +
+                    "2. Delete\n" +
+                    "3. Print\n" +
+                    "4. Exit Circular LinkedList");
+            clop = sc.nextInt();
+            switch (clop) {
+                case 1:
+                    System.out.println("Enter element to add:");
+                    cll.add(sc.nextInt());
+                    break;
+                case 2:
+                    System.out.println("Enter element to delete:");
+                    cll.delete(sc.nextInt());
+                    break;
+                case 3:
+                    System.out.print("Circular LinkedList: ");
+                    cll.print();
+                    break;
+                default:
+                    break;
+            }
+        } while (clop != 4);
     }
+
+
 
     public static void stackfunc() {
         Stack<Integer> stack = new Stack<>();
@@ -127,8 +182,114 @@ public class Main {
             }
         }while(sop!=4);
     System.out.println("Trying two stacks with one array...");
+    Main.Twostacksarray();
+    }
+
+    public static void Twostacksarray(){
+        TwoStacks ts = new TwoStacks(5);
+        Scanner sc = new Scanner(System.in);
+        int option;
+        do {
+            System.out.println("Enter your operation for Two Stacks:\n" +
+                    "1. Push to Stack 1\n" +
+                    "2. Push to Stack 2\n" +
+                    "3. Pop from Stack 1\n" +
+                    "4. Pop from Stack 2\n" +
+                    "5. Print both Stacks\n" +
+                    "6. Exit");
+            option = sc.nextInt();
+            switch (option) {
+                case 1:
+                    System.out.println("Enter value to push to Stack 1:");
+                    ts.push1(sc.nextInt());
+                    break;
+                case 2:
+                    System.out.println("Enter value to push to Stack 2:");
+                    ts.push2(sc.nextInt());
+                    break;
+                case 3:
+                    int popped1 = ts.pop1();
+                    if (popped1 != -1) {
+                        System.out.println("Popped from Stack 1: " + popped1);
+                    }
+                    break;
+                case 4:
+                    int popped2 = ts.pop2();
+                    if (popped2 != -1) {
+                        System.out.println("Popped from Stack 2: " + popped2);
+                    }
+                    break;
+                case 5:
+                    ts.printStacks();
+                    break;
+                default:
+                    if (option != 6) {
+                        System.out.println("Invalid option, please try again.");
+                    }
+            }
+        } while (option != 6);
 
     }
+    static class TwoStacks {
+        int size;
+        int top1, top2;
+        int[] arr;
+
+        TwoStacks(int n) {
+            size = n;
+            arr = new int[n];
+            top1 = -1;
+            top2 = size;
+        }
+
+        void push1(int x) {
+            if (top1 < top2 - 1) {
+                arr[++top1] = x;
+            } else {
+                System.out.println("Stack Overflow");
+            }
+        }
+
+        void push2(int x) {
+            if (top1 < top2 - 1) {
+                arr[--top2] = x;
+            } else {
+                System.out.println("Stack Overflow");
+            }
+        }
+
+        int pop1() {
+            if (top1 >= 0) {
+                return arr[top1--];
+            } else {
+                System.out.println("Stack Underflow");
+                return -1;
+            }
+        }
+
+        int pop2() {
+            if (top2 < size) {
+                return arr[top2++];
+            } else {
+                System.out.println("Stack Underflow");
+                return -1;
+            }
+        }
+        void printStacks() {
+            System.out.print("Stack 1: ");
+            for (int i = 0; i <= top1; i++) {
+                System.out.print(arr[i] + " ");
+            }
+            System.out.println();
+
+            System.out.print("Stack 2: ");
+            for (int i = size - 1; i >= top2; i--) {
+                System.out.print(arr[i] + " ");
+            }
+            System.out.println();
+        }
+    }
+
     public static void queuefunc() {
         Queue<Integer> queue = new LinkedList<>();
         Scanner sc = new Scanner(System.in);
@@ -182,39 +343,122 @@ public class Main {
 }
 
 //// Classes for Doubly Linkedlist
-//class Node {
-//    int data;
-//    Node next;
-//    Node prev;
-//    public Node(int data) {
-//        this.data = data;
-//    }
-//}
-//
-//class DoublyLinkedList{
-//    Node head;
-//    public void add(int data) {
-//        Node newNode = new Node(data);
-//        if (head == null) {
-//            head = newNode;
-//        }
-//        else {
-//            Node current = head;
-//            while (current.next != null) {
-//                current = current.next;
-//            }
-//            current.next = newNode;
-//            newNode.prev = current;
-//        }
-//    }
-//    public void print() {
-//        Node current = head;
-//        while (current != null) {
-//            System.out.print(current.data + " ");
-//            current = current.next;
-//        }
-//        System.out.println();
-//    }
-//}
+class DoublyLinkedList {
+    class Node {
+        int data;
+        Node prev, next;
+        Node(int data) {
+            this.data = data;
+        }
+    }
 
+    private Node head, tail;
+
+    public void add(int data) {
+        Node newNode = new Node(data);
+        if (head == null) {
+            head = tail = newNode;
+        } else {
+            tail.next = newNode;
+            newNode.prev = tail;
+            tail = newNode;
+        }
+    }
+
+    public void delete(int data) {
+        if (head == null) {
+            System.out.println("List is empty");
+            return;
+        }
+        Node current = head;
+        while (current != null) {
+            if (current.data == data) {
+                if (current == head) {
+                    head = head.next;
+                    if (head != null) head.prev = null;
+                } else if (current == tail) {
+                    tail = tail.prev;
+                    tail.next = null;
+                } else {
+                    current.prev.next = current.next;
+                    current.next.prev = current.prev;
+                }
+                return;
+            }
+            current = current.next;
+        }
+        System.out.println("Element not found");
+    }
+
+    public void print() {
+        Node current = head;
+        while (current != null) {
+            System.out.print(current.data + " ");
+            current = current.next;
+        }
+        System.out.println();
+    }
+}
+
+        class CircularLinkedList {
+            class Node {
+                int data;
+                Node next;
+                Node(int data) {
+                    this.data = data;
+                }
+            }
+
+            private Node head, tail;
+
+            public void add(int data) {
+                Node newNode = new Node(data);
+                if (head == null) {
+                    head = tail = newNode;
+                    tail.next = head; // Circular link
+                } else {
+                    tail.next = newNode;
+                    tail = newNode;
+                    tail.next = head; // Circular link
+                }
+            }
+
+            public void delete(int data) {
+                if (head == null) {
+                    System.out.println("List is empty");
+                    return;
+                }
+                Node current = head, prev = null;
+                do {
+                    if (current.data == data) {
+                        if (current == head) {
+                            tail.next = head.next;
+                            head = head.next;
+                        } else if (current == tail) {
+                            prev.next = head;
+                            tail = prev;
+                        } else {
+                            prev.next = current.next;
+                        }
+                        return;
+                    }
+                    prev = current;
+                    current = current.next;
+                } while (current != head);
+                System.out.println("Element not found");
+            }
+
+            public void print() {
+                if (head == null) {
+                    System.out.println("List is empty");
+                    return;
+                }
+                Node current = head;
+                do {
+                    System.out.print(current.data + " ");
+                    current = current.next;
+                } while (current != head);
+                System.out.println();
+            }
+        }
 // End for Doubly LinkedList
