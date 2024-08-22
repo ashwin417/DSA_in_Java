@@ -1,0 +1,12 @@
+Problem Statement 4:
+1. Write the program to create a file and write the content in a file and read from a file in
+java.
+2. Write a Java program to calculate the average value of array elements.
+3. Write a Java program to create a new array list, add some elements (string) and print out
+the collection.
+4. Write a Java Program to create a Generic Class with the name "Swapper" that contain a
+static generic method "do Swap()" that takes two arguments of any type and swap the
+variables and display the values before and after swapping
+5. Write a Java program to append the specified element to the end of a linked list.
+6. Write a Java program to count the number of key-value (size) mappings in a map.
+Write a Java program to clone a tree set list to another tree set
