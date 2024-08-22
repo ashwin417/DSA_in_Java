@@ -1,0 +1,12 @@
+    What is the output of following code snippet?
+    Public static void main (String [] args) {
+    Double a = 10;
+    Into b = 5 ;
+    System.out.println (a%b);
+    }
+
+
+Output will be an error due to:
+Public has it's 'P' in capital letter, which is wrong. Same for Double.
+Into is not a keyword or data type. May be it should have been int.
+if we correct the mistakes and find the output, it will be 0.0
