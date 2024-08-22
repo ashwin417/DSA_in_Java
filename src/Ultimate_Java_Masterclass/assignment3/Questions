@@ -1,0 +1,10 @@
+Problem Statement 1:
+1. Write the program based on IO Exception using the following keywords in java IDE.
+    A. try.
+    B. catch
+    C. finally
+    D. throw
+    E. throws
+2. Write the program to handle the following exceptions in java IDE.
+    a. Checked Exceptions
+    b. Unchecked Exceptions
