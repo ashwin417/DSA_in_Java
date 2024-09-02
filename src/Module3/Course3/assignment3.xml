@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Book ISBN="12558563-656"> // This will ensure uniquess of Book attribute
+    <Title>I am a Banana Plant</Title>
+    <Author>Nibin P Sreenivas</Author>
+    <PublicationYear>2024</PublicationYear>
+    <Genre>Autobiography</Genre>
+    <Publisher>
+        <Name>AdarshKools</Name>
+        <Location>Kulanada Universe</Location>
+    </Publisher>
+    <Characters>
+        <Character>
+            <Name>Nibin</Name>
+            <Role>Protagonist</Role>
+        </Character>>
+        <Character>
+            <Name>Banana</Name>>
+            <Role>Love Interest</Role>>
+        </Character>
+        <Character>
+            <Name>Akash</Name>
+            <Role>Antagonist</Role>
+        </Character>
+    </Characters>>
+</Book>
