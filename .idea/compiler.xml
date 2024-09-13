@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <excludeFromCompile>
+      <file url="file://$PROJECT_DIR$/src/LearningPath4/Course3/assignment3.java" />
+    </excludeFromCompile>
+    <bytecodeTargetLevel>
+      <module name="Course1-Assignment1" target="" />
+    </bytecodeTargetLevel>
+  </component>
+</project>
